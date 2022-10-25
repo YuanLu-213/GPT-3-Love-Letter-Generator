@@ -1,0 +1,34 @@
+.row1 {
+  font-size: 250px;
+}
+p {
+  margin-left: auto;
+  margin-right: auto;
+}
+span {
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 100px;
+  font-weight: bold;
+  font-family: cursive;
+  font-style: italic;
+  color: white;
+  text-align: center;
+}
+.row3 {
+  margin-top: 80px;
+}
+#him {
+  margin-left: 200px;
+  font-size: 80px;
+  border-radius: 5px;
+  border: transparent;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#her {
+  margin-left: 250px;
+  font-size: 80px;
+  border-radius: 5px;
+  border: transparent;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
