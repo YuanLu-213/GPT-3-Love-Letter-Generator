@@ -1,0 +1,22 @@
+{% extends 'nav.html' %} {% block content %}
+    <div class="row">
+        <p>
+            We will generate a three-paragraph style love letter for you, now is the first paragraph, please input the value according to instruction
+        </p>
+    </div>
+    <div class="row">
+        <label for="textInput">Do you want to use metaphor? (input no if you don’t want):</label>
+        <input id="metaphor" class="custom" size="32">
+    </div>
+    <div class="row">
+        <label for="textInput">Please write down some words you want to include in your love letter:</label>
+        <input id="words" class="custom" size="32">
+    </div>
+    <div class="row">
+        <label for="textInput">Please select the length for this paragraph:</label>
+        <input id="length" class="custom" size="32">
+    </div>
+    <div class="row">
+        <button name="button">Generate</button>
+    </div>
+{% endblock %}
