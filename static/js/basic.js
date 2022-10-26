@@ -35,10 +35,12 @@ $(document).ready(function () {
   $(".row2").append(form);
 
   $("#next").click(function () {
-    //var to_whom = $("#to-whom").val();
-    //var occasion = $("#occasion").val();
-    console.log("Hello");
-    //console.log(occasion);
-    //window.location.href = "/generate_paragraph";
+    var to_whom = $("#to-whom").val();
+    var occasion = $("#occasion").val();
+    window.location.href = "/generate_paragraph/" + to_whom + "/" + occasion;
+  });
+
+  $("#back").click(function () {
+    window.location.href = "/";
   });
 });
