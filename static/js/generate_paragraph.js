@@ -1,7 +1,7 @@
 function displayForm() {
-    let form = $('<form id="paragraph_length"></form>');
+    let form = $('<form id="paragraph_length" class="form"></form>');
     let label = $("<label></label>");
-    label.html("Please select the length for this paragraph");
+    label.html("Please select the length for this paragraph: ");
     let select = $('<select id="length"></select>');
     let option1 = "";
     let option2 = "";
@@ -12,21 +12,6 @@ function displayForm() {
     option2.html("5");
     option3 = $('<option value="7"></option>');
     option3.html("7");
-    // if (whom == "her") {
-    //   option1 = $('<option value="my girlfriend"></option>');
-    //   option1.html("Girlfriend");
-    //   option2 = $('<option value="my wife"></option>');
-    //   option2.html("Wife");
-    //   option3 = $('<option value="the girl that I adore"></option>');
-    //   option3.html("Sweetheart");
-    // } else {
-    //   option1 = $('<option value="my boyfriend"></option>');
-    //   option1.html("Boyfriend");
-    //   option2 = $('<option value="my husband"></option>');
-    //   option2.html("Husband");
-    //   option3 = $('<option value="the boy that I adore"></option>');
-    //   option3.html("Sweetheart");
-    // }
     select.append(option1);
     select.append(option2);
     select.append(option3);
@@ -42,26 +27,28 @@ $(document).ready(function () {
       });
 
     $("#add_metaphor").click(function(){
-        console.log("add metaphor!!!")
+        console.log("3")
         let form = $('<form id="metaphor_info" class="form"></form>');
         let label = $("<label></label>");
         let input = $('<input type="text" id="input_metaphor" />')
-        label.html("Please input the metaphor");
+        label.html("Please input the metaphor you want to use to describe your lover: ");
         form.append(label);
         form.append(input)
         $("#metaphor").append(form)
+        $(".row2").remove("#add_metaphor")
     });
 
     $("#add_words").click(function(){
         let form = $('<form id="words_info" class="form"></form>');
         let label = $("<label></label>");
         let input = $('<input type="text" id="input_words" />')
-        label.html("Please input the words");
+        label.html("Please input the words you want to tell your lover:");
         form.append(label);
         form.append(input)
         $("#words").append(form)
+        $(".row2").remove("#add_words")
     });
-    console.log("Heyy")
+    console.log("H")
     var form = displayForm();
     $("#length_form").append(form)
 });
