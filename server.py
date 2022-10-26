@@ -1,5 +1,8 @@
 from flask import Flask
 from flask import render_template, request, jsonify, Response, redirect
+import openai
+
+openai.api_key = "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"
 
 app = Flask(__name__)
 
@@ -16,10 +19,16 @@ def toWhoAndOccasion(key):
     return render_template("basic.html", whom=key)
 
 
-@app.route("/generate_paragraph")
-def generate_paragraph():
-    return render_template("generate_paragraph.html")
+@app.route("/generate_paragraph/<receiver>/<event>")
+def generate_paragraph(receiver, event):
+    global toWhom
+    global occasion
+    toWhom = receiver
+    occasion = event
+    return render_template("generate_paragraph.html", toWhom=toWhom, occasion=occasion)
 
 @app.route("/generated_result")
 def generated_result():
+    global toWhom
+    global occasion
     return render_template("generated_result.html")

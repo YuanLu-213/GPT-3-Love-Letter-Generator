@@ -1,33 +1,44 @@
 {% extends 'nav.html' %} {% block content %}
-<link rel="stylesheet" href="{{url_for('static', filename='css/generate_paragraph.css')}}" />
+<link
+  rel="stylesheet"
+  href="{{url_for('static', filename='css/generate_paragraph.css')}}"
+/>
 <script
   type="text/javascript"
-  src="{{url_for('static', filename='js/generate_paragraph.js')}}"
+  src="{{url_for('static', filename='js/generated_paragraph.js')}}"
 ></script>
-    <div class="row">
-        <p>
-            We will generate a three-paragraph style love letter for you, now is the first paragraph, please input the value according to instruction
-        </p>
-    </div>
-    <div class="row">
-        <form class="form">
-            <label>Do you want to use metaphor? (input no if you don’t want): </label>
-            <input type="text" id="metaphor" />
-          </form>
-    </div>
-    <div class="row">
-        <form class="form">
-            <label>Please write down some words you want to include in your love letter:</label>
-            <input type="text" id="words" />
-          </form>
-    </div>
-    <div class="row">
-        <form class="form">
-            <label>Please select the length for this paragraph</label>
-            <input type="text" id="length" />
-          </form>
-    </div>
-    <div class="row">
-        <button id="generate" name="button">Generate</button>
-    </div>
+<script>
+  var toWhom = {{toWhom | tojson}}
+  var occasion = {{occasion | occasion}}
+</script>
+<div class="row">
+  <p>
+    We will generate a three-paragraph style love letter for you, now is the
+    first paragraph, please input the value according to instruction
+  </p>
+</div>
+<div class="row">
+  <form class="form">
+    <label>Do you want to use metaphor? (input no if you don’t want): </label>
+    <input type="text" id="metaphor" />
+  </form>
+</div>
+<div class="row">
+  <form class="form">
+    <label
+      >Please write down some words you want to include in your love
+      letter:</label
+    >
+    <input type="text" id="words" />
+  </form>
+</div>
+<div class="row">
+  <form class="form">
+    <label>Please select the length for this paragraph</label>
+    <input type="text" id="length" />
+  </form>
+</div>
+<div class="row">
+  <button id="generate" name="button">Generate</button>
+</div>
 {% endblock %}
