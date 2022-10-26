@@ -1,0 +1,24 @@
+#title{
+    font-size: 60px;
+}
+
+#row{
+    font-size: 50px;
+}
+
+#yes {
+    /* margin-left: 200px; */
+    font-size: 80px;
+    border-radius: 5px;
+    border: transparent;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 10px;
+  }
+#no {
+    margin-left: 400px;
+    font-size: 80px;
+    border-radius: 5px;
+    border: transparent;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 10px;
+  }

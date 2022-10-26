@@ -1,0 +1,23 @@
+{% extends 'nav.html' %} {% block content %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/generated_result.css')}}" />
+<div class="row">
+    <div id="title" class="col-12-md">
+        Generation results
+    </div>
+</div>
+<div class="row">
+    <div class="col-12-md">
+    </div>
+</div>
+<div id="row1" class="row">
+    <div>Are you satisfied with the result? </div>
+</div>
+<div class="row">
+    <div class="col-6-md">
+        <button id="yes" name="button">Yes</button>
+    </div>
+    <div class="col-6-md">
+        <button id="no" name="button">No</button>
+    </div>
+</div>
+{% endblock %}
