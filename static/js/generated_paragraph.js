@@ -23,8 +23,12 @@ function displayForm() {
 $(document).ready(function () {
   var receiver = toWhom;
   var event = occasion;
+  var words_added = false;
+  var meta_added = false;
 
   $("#add_metaphor").click(function () {
+    meta_added = true;
+    $("#add_words").prop("disabled", true);
     let des = $('<p id="des"></p>');
     let form = $('<form id="metaphor_info" class="form"></form>');
     let row1 = $('<div class="row input-row"></div>');
@@ -56,6 +60,8 @@ $(document).ready(function () {
   });
 
   $("#add_words").click(function () {
+    words_added = true;
+    $("#add_metaphor").prop("disabled", true);
     let form = $('<form id="words_info" class="form"></form>');
     let label = $("<label></label>");
     let input = $('<input type="text" id="input_words" />');
@@ -74,15 +80,30 @@ $(document).ready(function () {
 
   $("#generate").click(function () {
     var addition = "";
-    var metaphor = "";
-    var words = "";
+    var input = "";
+    if (meta_added) {
+      addition = "metaphor";
+      input =
+        "compare " +
+        receiver +
+        "'s " +
+        $("#input_metaphor1").val() +
+        " with the " +
+        $("#input_metaphor3").val() +
+        " " +
+        $("#input_metaphor2").val();
+    } else if (words_added) {
+      addition = "words";
+      input = $("#input_words").val();
+    }
+
     var length = parseInt($("#length").val());
 
     var param = {
       receiver: receiver,
       occasion: event,
       addition: addition,
-      content: metaphor,
+      content: input,
       length: length,
     };
 
@@ -93,7 +114,8 @@ $(document).ready(function () {
       url: "/generate",
       success: function (data) {
         console.log("success", data);
-        // window.location.href = "/";
+        setTimeout(5000);
+        window.location.href = "/generated_result";
       },
       error: function (data) {
         console.log("Error", data);

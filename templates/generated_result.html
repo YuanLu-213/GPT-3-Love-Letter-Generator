@@ -4,6 +4,9 @@
   type="text/javascript"
   src="{{url_for('static', filename='js/generated_result.js')}}"
 ></script>
+<script>
+    var result = {{result | tojson}}
+</script>
 <div class="row">
     <div id="title" class="col-12-md">
         Generation results
