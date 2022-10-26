@@ -27,6 +27,10 @@ def generate_paragraph(receiver, event):
     occasion = event
     return render_template("generate_paragraph.html", toWhom=toWhom, occasion=occasion)
 
+@app.route("/generate", methods=["GET", "POST"])
+def gpt3_generate():
+    return jsonify(0)
+
 @app.route("/generated_result")
 def generated_result():
     global toWhom
