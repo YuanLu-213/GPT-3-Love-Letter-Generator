@@ -29,6 +29,8 @@ def generate_paragraph(receiver, event):
 
 @app.route("/generate", methods=["GET", "POST"])
 def gpt3_generate():
+    param = request.get_json()
+    print(param)
     return jsonify(0)
 
 @app.route("/generated_result")

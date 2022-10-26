@@ -1,6 +1,6 @@
 $(document).ready(function () {
   var receiver = toWhom;
-  var occasion = occasion;
+  var event = occasion;
   $("#generate").click(function () {
     var addition = "";
     var metaphor = "";
@@ -9,7 +9,7 @@ $(document).ready(function () {
 
     var param = {
       receiver: receiver,
-      occasion: occasion,
+      occasion: event,
       addition: addition,
       content: metaphor,
       length: length,
