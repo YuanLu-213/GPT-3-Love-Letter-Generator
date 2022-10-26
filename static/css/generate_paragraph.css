@@ -1,10 +1,18 @@
 .row {
-    margin-top: 80px;
-    text-align: center;
-  }
+  margin-top: 80px;
+  text-align: center;
+}
 
 #generate {
-  margin-left: 1100px; 
+  margin-left: 300px;
+  font-size: 80px;
+  border-radius: 5px;
+  border: transparent;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 10px;
+}
+#back {
+  margin-left: -500px;
   font-size: 80px;
   border-radius: 5px;
   border: transparent;
@@ -12,34 +20,59 @@
   padding: 10px;
 }
 #add_metaphor {
- margin-left: 200px;
- font-size: 80px;
- border-radius: 5px;
- border: transparent;
- box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
- padding: 10px;
+  margin-left: 500px;
+  align-items: center;
+  font-size: 80px;
+  border-radius: 5px;
+  border: transparent;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 10px;
 }
 #add_words {
- margin-left: 200px;
- font-size: 80px;
- border-radius: 5px;
- border: transparent;
- box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
- padding: 10px;
+  margin-left: 550px;
+  align-items: center;
+  font-size: 80px;
+  border-radius: 5px;
+  border: transparent;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 10px;
 }
 p {
-  font-size: 100px;
+  font-size: 60px;
   color: white;
   text-align: center;
   font-weight: bold;
 }
 .form {
   font-size: 50px;
-  margin-left: 200px;
+  /* margin-left: 200px; */
+}
+#length_form {
+  margin-left: 150px;
+  align-items: center;
 }
 
-#input_metaphor, #input_words, #length{
+#input_metaphor,
+#input_words,
+#length {
   font-size: 50px;
   border-radius: 10px;
   padding: 5px;
+}
+#length {
+  margin-left: 30px;
+}
+label {
+  color: white;
+}
+#des {
+  font-size: 50px;
+  margin-left: 200px;
+}
+input {
+  margin-left: 30px;
+}
+.input-row {
+  margin-left: 200px;
+  text-align: center;
 }

@@ -25,15 +25,32 @@ $(document).ready(function () {
   var event = occasion;
 
   $("#add_metaphor").click(function () {
-    console.log("3");
+    let des = $('<p id="des"></p>');
     let form = $('<form id="metaphor_info" class="form"></form>');
-    let label = $("<label></label>");
-    let input = $('<input type="text" id="input_metaphor" />');
-    label.html(
-      "Please input the metaphor you want to use to describe your lover: "
-    );
-    form.append(label);
-    form.append(input);
+    let row1 = $('<div class="row input-row"></div>');
+    let label1 = $("<label></label>");
+    let input1 = $('<input type="text" id="input_metaphor1" />');
+    let row2 = $('<div class="row input-row"></div>');
+    let label2 = $("<label></label>");
+    let input2 = $('<input type="text" id="input_metaphor2" />');
+    let row3 = $('<div class="row input-row"></div>');
+    let label3 = $("<label></label>");
+    let input3 = $('<input type="text" id="input_metaphor3" />');
+    des.html("Please give us three words for the metaphor: ");
+    label1.html("Compare " + receiver + "'s: ");
+    row1.append(label1);
+    row1.append(input1);
+    form.append(row1);
+    label2.html("To: ");
+    row2.append(label2);
+    row2.append(input2);
+    form.append(row2);
+    label3.html("Adjective: ");
+    row3.append(label3);
+    row3.append(input3);
+    form.append(row3);
+
+    $("#metaphor").append(des);
     $("#metaphor").append(form);
     $(".row2").remove("#add_metaphor");
   });
@@ -48,9 +65,13 @@ $(document).ready(function () {
     $("#words").append(form);
     $(".row2").remove("#add_words");
   });
-  console.log("H");
   var form = displayForm();
   $("#length_form").append(form);
+
+  $("#back").click(function () {
+    window.location.href = "/basic/" + whom;
+  });
+
   $("#generate").click(function () {
     var addition = "";
     var metaphor = "";
@@ -76,7 +97,6 @@ $(document).ready(function () {
       },
       error: function (data) {
         console.log("Error", data);
-        $(".last").html("Error occured. Please try again");
       },
     });
   });

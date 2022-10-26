@@ -3,6 +3,10 @@
   rel="stylesheet"
   href="{{url_for('static', filename='css/generate_paragraph.css')}}"
 />
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+/>
 <script
   type="text/javascript"
   src="{{url_for('static', filename='js/generated_paragraph.js')}}"
@@ -10,24 +14,34 @@
 <script>
   var toWhom = {{toWhom | tojson}}
   var occasion = {{occasion | tojson}}
+  var paragraph = {{paragraph | tojson}}
+  var whom = {{whom | tojson}}
 </script>
 <div class="row">
-  <p>
-    We will generate a three-paragraph style love letter for you, now is the
-    first paragraph
-  </p>
-</div>
-<div class="row row2">
-  <button id="add_metaphor">Add metaphor</button>
-</div>
-<div id="metaphor" class="row"></div>
-<div class="row row3">
-  <button id="add_words">Add words</button>
-</div>
-<div id="words" class="row"></div>
-<div id="length_form" class="row">
-  <div class="row">
-    <button id="generate" name="button">Generate</button>
+  <div class="col-md-3"></div>
+  <div class="col-md-6">
+    <p>
+      We will generate a three-paragraph style love letter for you, now is the
+      {{paragraph}} paragraph
+    </p>
+    <div class="row row2">
+      <button id="add_metaphor">Metaphor <i class="fa fa-plus"></i></button>
+    </div>
+    <div id="metaphor" class="row"></div>
+    <div class="row row3">
+      <button id="add_words">Words <i class="fa fa-plus"></i></button>
+    </div>
+    <div id="words" class="row"></div>
+    <div id="length_form" class="row"></div>
+    <div class="row">
+      <div class="col-md-6">
+        <button id="back">Back</button>
+      </div>
+      <div class="col-md-6">
+        <button id="generate" name="button">Generate</button>
+      </div>
+    </div>
+    <div class="col-md-3"></div>
   </div>
-  {% endblock %}
 </div>
+{% endblock %}

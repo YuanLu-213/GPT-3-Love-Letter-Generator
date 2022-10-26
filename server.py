@@ -7,7 +7,9 @@ openai.api_key = "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"
 app = Flask(__name__)
 
 toWhom = ""
+whom = ""
 occasion = ""
+paragraphs = []
 
 @app.route("/")
 def home():
@@ -15,7 +17,9 @@ def home():
 
 @app.route("/basic/<key>")
 def toWhoAndOccasion(key):
+    global whom
     key = key
+    whom = key
     return render_template("basic.html", whom=key)
 
 
@@ -23,9 +27,20 @@ def toWhoAndOccasion(key):
 def generate_paragraph(receiver, event):
     global toWhom
     global occasion
+    global paragraphs
+    global whom
     toWhom = receiver
     occasion = event
-    return render_template("generate_paragraph.html", toWhom=toWhom, occasion=occasion)
+    length = len(paragraphs) + 1
+    paragraph = ""
+    if(length == 1):
+        paragraph = "first"
+    elif length == 2:
+        paragraph = "second"
+    else:
+        paragraph = "last"
+
+    return render_template("generate_paragraph.html", toWhom=toWhom, occasion=occasion, paragraph=paragraph, whom=whom)
 
 @app.route("/generate", methods=["GET", "POST"])
 def gpt3_generate():
