@@ -1,5 +1,9 @@
 {% extends 'nav.html' %} {% block content %}
 <link rel="stylesheet" href="{{url_for('static', filename='css/generated_result.css')}}" />
+<script
+  type="text/javascript"
+  src="{{url_for('static', filename='js/generated_result.js')}}"
+></script>
 <div class="row">
     <div id="title" class="col-12-md">
         Generation results
@@ -19,5 +23,8 @@
     <div class="col-6-md">
         <button id="no" name="button">No</button>
     </div>
+</div>
+<div class="row">
+</div id="regenerate" class="col-12-md">Here</div>
 </div>
 {% endblock %}
