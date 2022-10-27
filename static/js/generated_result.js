@@ -16,7 +16,11 @@ $(document).ready(function () {
   $("#row1").append(question);
 
   $("#yes").click(function () {
-    window.location.href = "/generate_paragraph/" + toWhom + "/" + occasion;
+    if (paragraphs.length == 4) {
+      window.location.href = "/final_result";
+    } else {
+      window.location.href = "/generate_paragraph/" + toWhom + "/" + occasion;
+    }
   });
 
   $("#no").click(function () {

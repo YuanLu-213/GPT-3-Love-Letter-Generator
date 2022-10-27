@@ -108,17 +108,28 @@ $(document).ready(function () {
     var length = parseInt($("#length").val());
 
     var attribute = "";
+    var reason = "";
+    var send_name = "";
+    var rec_name = "";
     if (paragraph == "second") {
       attribute = $("#attr").val();
+    } else if (paragraph == "third") {
+      reason = $("#why").val();
+    } else if (paragraph == "final") {
+      send_name = $("#sender").val();
+      rec_name = $("#receiver").val();
     }
 
     var param = {
       receiver: receiver,
       occasion: event,
       attr: attribute,
+      purpose: reason,
       addition: addition,
       content: input,
       length: length,
+      sender: send_name,
+      receiver: rec_name,
     };
 
     $.ajax({

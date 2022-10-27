@@ -3,7 +3,7 @@ from flask import Flask
 from flask import render_template, request, jsonify, Response, redirect
 import openai
 
-openai.api_key = "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"
+openai.api_key = "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"
 
 app = Flask(__name__)
 
@@ -38,49 +38,91 @@ def generate_paragraph(receiver, event):
         paragraph = "first"
     elif length == 2:
         paragraph = "second"
-    else:
+    elif length == 3:
         paragraph = "last"
+    else:
+        paragraph = "final"
+
+
     if length == 1:
         return render_template("generate_paragraph.html", toWhom=toWhom, occasion=occasion, paragraph=paragraph, whom=whom)
     elif length == 2:
         return render_template("generate_second.html", toWhom=toWhom, occasion=occasion, paragraph=paragraph, whom=whom)
+    elif length == 3:
+        return render_template("generate_third.html", toWhom=toWhom, occasion=occasion, paragraph=paragraph, whom=whom)
+    else:
+        return render_template("generate_final.html", toWhom=toWhom, occasion=occasion, paragraph=paragraph, whom=whom)
+
 
 @app.route("/generate", methods=["GET", "POST"])
 def gpt3_generate():
     global paragraphs
+    global whom
     param = request.get_json()
-    print(param)
+    # print(param)
+    who = ""
+    if whom == "Him":
+        who = "his"
+    else:
+        who = "her"
     res = ""
-    def generateBeginning(receiver, occasion, additional, content, length):
+    #function to call GPT-3 to generate first paragraph
+    def generateBeginning(who, receiver, occasion, additional, content, length):
         prompt = ""
         if additional != "": 
             if additional == "metaphor":
-                prompt = f"Compose a paragraph containing {length} sentences for {receiver} to celebrate {occasion} with {additional} to {content}"
+                prompt = f"Compose one paragraph of lover letter containing {length} sentences for {receiver} to celebrate {who} {occasion} with {additional} to {content}"
             else:
-                prompt = f"Compose a paragraph containing {length} sentences using {additional}: {content} for {receiver} to celebrate {occasion}." 
+                prompt = f"Compose one paragraph of lover letter containing {length} sentences using {additional}: {content} for {receiver} to celebrate {who} {occasion}." 
         else:
-            prompt = f"Compose a paragraph containing {length} sentences for {receiver} to celebrate {occasion}"
-        completion = openai.Completion.create(engine='text-davinci-002', max_tokens=256, prompt=prompt)
+            prompt = f"Compose one paragraph of lover letter containing {length} sentences for {receiver} to celebrate {who} {occasion}"
+        completion = openai.Completion.create(engine='text-davinci-002', max_tokens=1000, prompt=prompt)
         result = completion.choices[0].text.strip()
         return result
 
+    #function to call GPT-3 to generate second paragraph
     def generateSecond(receiver, attribute, additional, content, length):
         prompt = ""
         if additional != "": 
             if additional == "metaphor":
-                prompt = f"Compose one paragraph containing {length} sentences for {receiver} to compliment {receiver}'s {attribute} with {additional} to {content}"
+                prompt = f"Compose one paragraph of lover letter containing {length} sentences for {receiver} to compliment {receiver}'s {attribute} with {additional} to {content}"
             else:
-                prompt = f"Compose one paragraph containing {length} sentences using {additional}: {content} for {receiver} to compliment {receiver}'s {attribute}." 
+                prompt = f"Compose one paragraph of lover letter containing {length} sentences using {additional}: {content} for {receiver} to compliment {receiver}'s {attribute}." 
         else:
-            prompt = f"Compose one paragraph containing {length} sentences for {receiver} to compliment {receiver}'s {attribute}."
-        completion = openai.Completion.create(engine='text-davinci-002', max_tokens=256, prompt=prompt)
+            prompt = f"Compose one paragraph of lover lettercontaining {length} sentences for {receiver} to compliment {receiver}'s {attribute}."
+        completion = openai.Completion.create(engine='text-davinci-002', max_tokens=1000, prompt=prompt)
         result = completion.choices[0].text.strip()
         return result
+
+    #function to call GPT-3 to generate third paragraph
+    def generateEnding(receiver, purpose, additional, content, length):
+        prompt = ""
+        if additional != "": 
+            if additional == "metaphor":
+                prompt = f"Compose one paragraph of lover letter containing {length} sentences with {additional} to {content} for {receiver} to confess my love to {receiver} and {purpose}."
+            else:
+                prompt = f"Compose one paragraph of lover letter containing {length} sentences using {additional}: {content} for {receiver} to confess my love to {receiver} and {purpose}." 
+        else:
+            prompt = f"Compose one paragraph of lover letter containing {length} sentences for {receiver} to confess my love to {receiver} and {purpose}."
+        completion = openai.Completion.create(engine='text-davinci-002', max_tokens=1000, prompt=prompt)
+        result = completion.choices[0].text.strip()
+        return result
+
+    #function to call GPT-3 to generate final letter
+    def completeLetter(beginning, second, ending, receiver, sender):
+        prompt = f"Elaborate a love letter using beginning paragraph '{beginning}', second paragraph: '{second}', and last paragraph: '{ending}' with receiver's name '{receiver}' and sender's name '{sender}'."
+        completion = openai.Completion.create(engine='text-davinci-002', max_tokens=3800, prompt=prompt)
+        result = completion.choices[0].text.strip()
+        return result
+
     if len(paragraphs) == 0:
-        res = generateBeginning(param["receiver"], param["occasion"], param["addition"], param["content"], param["length"])
+        res = generateBeginning(who, param["receiver"], param["occasion"], param["addition"], param["content"], param["length"])
     elif len(paragraphs) == 1:
-        res = generateSecond(param["receiver"], param["attribute"], param["addition"], param["content"], param["length"])
-    print(res)
+        res = generateSecond(param["receiver"], param["attr"], param["addition"], param["content"], param["length"])
+    elif len(paragraphs) == 2:
+        res = generateEnding(param["receiver"], param["purpose"], param["addition"], param["content"], param["length"])
+    else:
+        res = completeLetter(paragraphs[0], paragraphs[1], paragraphs[2], param["receiver"], param["sender"])
     paragraphs.append(res)
     return jsonify(0)
 
@@ -91,7 +133,7 @@ def gpt3_regenerate():
     print(param)
     def elaborateParagraph(paragraph, requirements):
         prompt = f"Elaborate on {paragraph} to be {requirements}"
-        completion = openai.Completion.create(engine='text-davinci-002', max_tokens=256, prompt=prompt)
+        completion = openai.Completion.create(engine='text-davinci-002', max_tokens=1000, prompt=prompt)
         result = completion.choices[0].text.strip()
         return result
 
@@ -106,4 +148,18 @@ def generated_result():
     global toWhom
     global occasion
     global paragraphs
-    return render_template("generated_result.html", result=paragraphs[-1], toWhom=toWhom, occasion=occasion)
+    return render_template("generated_result.html", result=paragraphs[-1], toWhom=toWhom, occasion=occasion, paragraphs=paragraphs)
+
+@app.route("/final_result")
+def final():
+    global paragraphs   
+    global toWhom
+    global occasion
+    global whom
+    paragraph = paragraphs[-1]
+    paragraphs.clear()
+    toWhom = ""
+    whom = ""
+    occasion = ""
+
+    return render_template("result.html", paragraph = paragraph)

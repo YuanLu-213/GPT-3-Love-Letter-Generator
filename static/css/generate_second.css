@@ -2,12 +2,31 @@
   margin-top: 80px;
   text-align: center;
 }
-#compliment {
+#compliment,
+#purpose {
   text-align: center;
   color: white;
   font-size: 60px;
 }
 #attr {
+  font-size: 50px;
+  border-radius: 10px;
+  padding: 5px;
+}
+#why {
+  font-size: 50px;
+  border-radius: 10px;
+  padding: 5px;
+}
+#name,
+#lover-name {
+  text-align: center;
+  color: white;
+  font-size: 60px;
+  margin-left: 150px;
+}
+#sender,
+#receiver {
   font-size: 50px;
   border-radius: 10px;
   padding: 5px;

@@ -1,0 +1,65 @@
+{% extends 'nav.html' %} {% block content %}
+<link
+  rel="stylesheet"
+  href="{{url_for('static', filename='css/generate_second.css')}}"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+/>
+<script
+  type="text/javascript"
+  src="{{url_for('static', filename='js/generated_paragraph.js')}}"
+></script>
+<script>
+  var toWhom = {{toWhom | tojson}}
+  var occasion = {{occasion | tojson}}
+  var paragraph = {{paragraph | tojson}}
+  var whom = {{whom | tojson}}
+</script>
+<div class="row">
+  <div class="col-md-3">
+    <div class="rhombus2">
+      <div class="circle21"></div>
+      <div class="circle22"></div>
+    </div>
+    <div class="text">
+      <p>Generating...</p>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <p>
+        Almost done! We just need a little bit more information from you.
+    </p>
+    <div class="row">
+        <form>
+            <label id="name">Your name: </label>
+            <input type="text" id="sender"></input>
+        </form>
+    </div>
+    <div class="row">
+        <form>
+            <label id="lover-name">Your Lover's name: </label>
+            <input type="text" id="receiver"></input>
+        </form>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <button id="back">Back</button>
+      </div>
+      <div class="col-md-6">
+        <button id="generate" name="button">Generate</button>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="rhombus2">
+      <div class="circle21"></div>
+      <div class="circle22"></div>
+    </div>
+    <div class="text">
+      <p>Generating...</p>
+    </div>
+  </div>
+</div>
+{% endblock %}

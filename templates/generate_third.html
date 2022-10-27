@@ -1,0 +1,69 @@
+{% extends 'nav.html' %} {% block content %}
+<link
+  rel="stylesheet"
+  href="{{url_for('static', filename='css/generate_second.css')}}"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+/>
+<script
+  type="text/javascript"
+  src="{{url_for('static', filename='js/generated_paragraph.js')}}"
+></script>
+<script>
+  var toWhom = {{toWhom | tojson}}
+  var occasion = {{occasion | tojson}}
+  var paragraph = {{paragraph | tojson}}
+  var whom = {{whom | tojson}}
+</script>
+<div class="row">
+  <div class="col-md-3">
+    <div class="rhombus2">
+      <div class="circle21"></div>
+      <div class="circle22"></div>
+    </div>
+    <div class="text">
+      <p>Generating...</p>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <p>
+      We will generate a three-paragraph style love letter for you, now is the
+      {{paragraph}} paragraph
+    </p>
+    <div class="row">
+        <form>
+            <label id="purpose">Why you write this letter to your loved one: </label>
+            <input type="text" id="why"></input>
+        </form>
+    </div>
+    <div class="row row2">
+      <button id="add_metaphor">Metaphor <i class="fa fa-plus"></i></button>
+    </div>
+    <div id="metaphor" class="row"></div>
+    <div class="row row3">
+      <button id="add_words">Words <i class="fa fa-plus"></i></button>
+    </div>
+    <div id="words" class="row"></div>
+    <div id="length_form" class="row"></div>
+    <div class="row">
+      <div class="col-md-6">
+        <button id="back">Back</button>
+      </div>
+      <div class="col-md-6">
+        <button id="generate" name="button">Generate</button>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="rhombus2">
+      <div class="circle21"></div>
+      <div class="circle22"></div>
+    </div>
+    <div class="text">
+      <p>Generating...</p>
+    </div>
+  </div>
+</div>
+{% endblock %}
