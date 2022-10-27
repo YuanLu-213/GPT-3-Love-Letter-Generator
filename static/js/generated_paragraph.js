@@ -77,7 +77,7 @@ $(document).ready(function () {
   $("#length_form").append(form);
 
   $("#back").click(function () {
-    if (paragraph == "First") {
+    if (paragraph == "first") {
       window.location.href = "/basic/" + whom;
     } else {
       window.location.href = "/generated_result";
