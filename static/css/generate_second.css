@@ -1,92 +1,90 @@
-#title {
-  margin-left: 250px;
+.row {
   margin-top: 80px;
-  margin-bottom: 80px;
-  font-size: 60px;
+  text-align: center;
+}
+#compliment {
   text-align: center;
   color: white;
-  font-weight: bold;
+  font-size: 60px;
 }
-
-#row {
-  font-size: 50px;
-  margin-bottom: 80px;
-}
-
-#row1 {
-  font-size: 50px;
-  text-align: center;
-  margin-left: 50px;
-}
-
-#yes {
-  font-size: 80px;
-  border-radius: 5px;
-  border: transparent;
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  padding: 10px;
-  margin-left: 110px;
-}
-#no {
-  margin-left: 400px;
-  font-size: 80px;
-  border-radius: 5px;
-  border: transparent;
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  padding: 10px;
-}
-
-#regenerate_idea {
+#attr {
   font-size: 50px;
   border-radius: 10px;
   padding: 5px;
-  margin-left: 450px;
 }
 
-.form {
-  font-size: 50px;
-  margin-left: 200px;
-}
-
-label {
-  font-size: 50px;
-  color: white;
-  text-align: center;
-  margin-left: 30px;
-  margin-bottom: 30px;
+#generate {
+  margin-left: 300px;
+  font-size: 80px;
+  border-radius: 5px;
+  border: transparent;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 10px;
 }
 #back {
-  /* margin-left: 200px; */
+  margin-left: -500px;
   font-size: 80px;
   border-radius: 5px;
   border: transparent;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   padding: 10px;
 }
-#generate {
-  margin-top: 30px;
-  margin-left: 400px;
+#add_metaphor {
+  margin-left: 500px;
+  align-items: center;
   font-size: 80px;
   border-radius: 5px;
   border: transparent;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   padding: 10px;
+}
+#add_words {
+  margin-left: 550px;
+  align-items: center;
+  font-size: 80px;
+  border-radius: 5px;
+  border: transparent;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 10px;
+}
+p {
+  font-size: 60px;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+.form {
+  font-size: 50px;
+  /* margin-left: 200px; */
+}
+#length_form {
+  margin-left: 150px;
+  align-items: center;
 }
 
-h2 {
-  text-align: center;
-}
-h1 {
-  margin-bottom: 80px;
-  margin-left: 200px;
-  color: white;
-  font-size: 60px;
-}
-#result {
-  text-align: center;
+#input_metaphor,
+#input_words,
+#length {
   font-size: 50px;
-  color: rgb(39, 37, 37);
-  margin-bottom: 80px;
+  border-radius: 10px;
+  padding: 5px;
+}
+#length {
+  margin-left: 30px;
+}
+label {
+  color: white;
+}
+#des {
+  font-size: 50px;
+  margin-left: 200px;
+}
+input {
+  margin-left: 30px;
+}
+.input-row {
+  margin-left: 200px;
+  text-align: center;
 }
 
 .text {
@@ -121,7 +119,7 @@ h1 {
   width: 40px;
   z-index: 0;
   margin-top: 15px;
-  margin-left: 15px;
+  margin-left: -22px;
   transform: rotate(45deg);
 }
 

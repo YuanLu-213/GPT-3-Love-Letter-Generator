@@ -1,33 +1,49 @@
 {% extends 'nav.html' %} {% block content %}
-<link rel="stylesheet" href="{{url_for('static', filename='css/generated_result.css')}}" />
+<link
+  rel="stylesheet"
+  href="{{url_for('static', filename='css/generated_result.css')}}"
+/>
 <script
   type="text/javascript"
   src="{{url_for('static', filename='js/generated_result.js')}}"
 ></script>
 <script>
-    var result = {{result | tojson}}
+  var result = {{result | tojson}}
+  var toWhom = {{toWhom | tojson}}
+  var occasion = {{occasion | tojson}}
 </script>
 <div class="row">
-    <div id="title" class="col-12-md">
-        Generation results
+  <div class="col-md-3">
+    <div class="rhombus2">
+      <div class="circle21"></div>
+      <div class="circle22"></div>
     </div>
-</div>
-<div class="row">
-    <div class="col-12-md">
+    <div class="text">
+      <p>Generating...</p>
     </div>
-</div>
-<div id="row1" class="row">
-    <div>Are you satisfied with the result? </div>
-</div>
-<div class="row">
-    <div class="col-6-md">
-        <button id="yes" name="button">Yes</button>
+  </div>
+  <div class="col-md-6">
+    <div class="row">
+      <div id="title" class="col-12-md">
+        Here is you letter to your dearest:
+      </div>
     </div>
-    <div class="col-6-md">
-        <button id="no" name="button">No</button>
+    <div class="row">
+      <div class="col-12-md" id="result">{{result}}</div>
     </div>
-</div>
-<div class="row">
-</div id="regenerate" class="col-12-md">Here</div>
+    <div id="row1" class="row"></div>
+    <div class="row" id="button"></div>
+    <div class="row" id="regenerate"></div>
+    <div id="row2" class="row"></div>
+  </div>
+  <div class="col-md-3">
+    <div class="rhombus2">
+      <div class="circle21"></div>
+      <div class="circle22"></div>
+    </div>
+    <div class="text">
+      <p>Generating...</p>
+    </div>
+  </div>
 </div>
 {% endblock %}

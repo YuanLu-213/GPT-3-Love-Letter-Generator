@@ -21,6 +21,8 @@ function displayForm() {
   return form;
 }
 $(document).ready(function () {
+  $(".text").hide();
+  $(".rhombus2").hide();
   var receiver = toWhom;
   var event = occasion;
   var words_added = false;
@@ -75,10 +77,16 @@ $(document).ready(function () {
   $("#length_form").append(form);
 
   $("#back").click(function () {
-    window.location.href = "/basic/" + whom;
+    if (paragraph == "First") {
+      window.location.href = "/basic/" + whom;
+    } else {
+      window.location.href = "/generated_result";
+    }
   });
 
   $("#generate").click(function () {
+    $(".text").show();
+    $(".rhombus2").show();
     var addition = "";
     var input = "";
     if (meta_added) {
@@ -99,9 +107,15 @@ $(document).ready(function () {
 
     var length = parseInt($("#length").val());
 
+    var attribute = "";
+    if (paragraph == "second") {
+      attribute = $("#attr").val();
+    }
+
     var param = {
       receiver: receiver,
       occasion: event,
+      attr: attribute,
       addition: addition,
       content: input,
       length: length,

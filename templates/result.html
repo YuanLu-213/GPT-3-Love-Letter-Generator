@@ -1,0 +1,39 @@
+{% extends 'nav.html' %} {% block content %}
+<link
+  rel="stylesheet"
+  href="{{url_for('static', filename='css/result.css')}}"
+/>
+<script
+  type="text/javascript"
+  src="{{url_for('static', filename='js/jquery-sakura.min.js')}}"
+></script>
+<script>
+  // domReady
+  $(function () {
+    $("body").sakura();
+  });
+
+  // windowLoad
+  $(window).load(function () {
+    $("body").sakura("start", {
+      maxSize: 50, // Maximum petal size
+      minSize: 14, // Minimum petal size
+    });
+  });
+</script>
+
+<div class="row">
+  <div class="col-md-3"></div>
+  <div class="col-md-6">
+    <div class="row">
+      <h2>Your love letter is below:</h2>
+      >
+    </div>
+    <div class="row content"></div>
+    <div class="row">
+      <h2>Send it your lover and express your love now!</h2>
+    </div>
+  </div>
+  <div class="col-md-3"></div>
+</div>
+{% endblock %}
