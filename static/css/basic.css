@@ -44,3 +44,7 @@ p {
 label {
   color: white;
 }
+#warning {
+  color: rgb(255, 0, 0);
+  font-size: large;
+}

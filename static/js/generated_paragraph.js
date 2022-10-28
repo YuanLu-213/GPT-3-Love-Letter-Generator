@@ -58,7 +58,7 @@ $(document).ready(function () {
 
     $("#metaphor").append(des);
     $("#metaphor").append(form);
-    $(".row2").remove("#add_metaphor");
+    $("#add_metaphor").hide();
   });
 
   $("#add_words").click(function () {
@@ -71,7 +71,7 @@ $(document).ready(function () {
     form.append(label);
     form.append(input);
     $("#words").append(form);
-    $(".row2").remove("#add_words");
+    $("#add_words").hide();
   });
   var form = displayForm();
   $("#length_form").append(form);

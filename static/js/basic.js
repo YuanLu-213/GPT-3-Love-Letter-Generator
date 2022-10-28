@@ -37,7 +37,13 @@ $(document).ready(function () {
   $("#next").click(function () {
     var to_whom = $("#to-whom").val();
     var occasion = $("#occasion").val();
-    window.location.href = "/generate_paragraph/" + to_whom + "/" + occasion;
+    if (occasion.length === 0) {
+      let warning = $("<h2></h2>");
+      warning.html("Please input an occasion!");
+      $("#warning").append(warning);
+    } else {
+      window.location.href = "/generate_paragraph/" + to_whom + "/" + occasion;
+    }
   });
 
   $("#back").click(function () {
