@@ -1,9 +1,12 @@
+import os
 from unittest import result
 from flask import Flask
 from flask import render_template, request, jsonify, Response, redirect
 import openai
 
-openai.api_key = "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"
+openai.api_key = "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"
+#openai.api_key = os.environ["OPENAI_API_KEY"]
+
 
 app = Flask(__name__)
 
